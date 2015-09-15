@@ -1,3 +1,5 @@
+package graphy.object.matrix;
+
 public class Edgies {
     private Vertexs V;
 

@@ -1,3 +1,5 @@
+package graphy.object.matrix;
+
 public class Vertexs {
     private int m;
     private int[] vertices;
