@@ -47,6 +47,22 @@ public class Graphy {
         return g;
     }
 
+    private void initializeSingleSource(int startID) {
+        v.initializeSingleSource(startID);
+    }
+
+    public boolean Bellman_Ford(double w, int startID) {
+        initializeSingleSource(startID);
+
+        return true;
+    }
+
+    public void Dijkstra(double w, int startID) {
+        initializeSingleSource(startID);
+
+
+    }
+
     public static void main(String[] args) throws FileNotFoundException {
         //Scanner sc = new Scanner(System.in);
         Scanner sc = new Scanner(new FileInputStream("res/input_graphy_matrix.txt"));
@@ -54,3 +70,5 @@ public class Graphy {
         Graphy g = Graphy.buildMatrixGraphy(sc, true, true);
     }
  }
+
+
