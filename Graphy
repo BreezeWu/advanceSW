@@ -1,0 +1,8 @@
+public class Graphy {
+    private Vertexs V;
+    private Edgies E;
+    public Graphy(int numOfVertices, int numOfEdgies) {
+        V = new Vertexs(numOfVertices);
+        E = new Edgies(numOfEdgies, V);
+    }
+}
