@@ -1,11 +1,11 @@
 package graphy.object.matrix;
 
 public class Vertexs {
-    private int m;
+    private int numOfVertices;
     private int[] vertices;
 
     public Vertexs(int numOfVertices) {
-        m = numOfVertices;
-        vertices = new int[m];
+        this.numOfVertices = numOfVertices;
+        vertices = new int[this.numOfVertices];
     }
 }
