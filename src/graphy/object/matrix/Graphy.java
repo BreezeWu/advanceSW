@@ -1,5 +1,8 @@
 package graphy.object.matrix;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FilterInputStream;
 import java.util.Scanner;
 
 public class Graphy {
@@ -17,7 +20,7 @@ public class Graphy {
         e = new Edgies(numOfEdgies, v);
     }
 
-    public static Graphy buildMatrixGraphy(Scanner sc, boolean isIDFrom1) {
+    public static Graphy buildMatrixGraphy(Scanner sc, boolean isIDFrom1, boolean isUnDirected) {
         int m = sc.nextInt();
         int n = sc.nextInt();
         Graphy g = new Graphy(m, n);
@@ -30,9 +33,24 @@ public class Graphy {
         }
 
         for(int i = 0; i < n; i++) {
-            g.e.setEdgy(sc.nextInt() - indexOffset, sc.nextInt() - indexOffset, sc.nextDouble());
+            int start = sc.nextInt();
+            int end = sc.nextInt();
+            double weight = sc.nextDouble();
+
+            g.e.setEdgy(start - indexOffset, end - indexOffset, weight);
+
+            if(isUnDirected) {
+                g.e.setEdgy(end - indexOffset, start - indexOffset, weight);
+            }
         }
 
         return g;
     }
-}
+
+    public static void main(String[] args) throws FileNotFoundException {
+        //Scanner sc = new Scanner(System.in);
+        Scanner sc = new Scanner(new FileInputStream("res/input_graphy_matrix.txt"));
+
+        Graphy g = Graphy.buildMatrixGraphy(sc, true, true);
+    }
+ }
