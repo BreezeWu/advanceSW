@@ -1,8 +1,5 @@
 package sorting;
 
-import java.util.Collection;
-import java.util.Collections;
-
 /**
  * Created by Hongze Wu on 2015/9/15.
  */
@@ -10,9 +7,9 @@ public class QuickSort<T extends Sortable> {
     private int size;
     private T[] buffer;
 
-    public QuickSort(int size) {
-        this.size = size;
-        buffer = (T[])new Object[size];
+    public QuickSort(T[] buffer) {
+        this.size = buffer.length;
+        this.buffer = buffer;
     }
 
     public void recursiveQuickSort(int p, int r) {
