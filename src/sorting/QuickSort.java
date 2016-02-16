@@ -20,7 +20,7 @@ public class QuickSort<T extends Sortable> {
         }
     }
 
-    public int partition(int p, int r) {
+    private int partition(int p, int r) {
         T pivot = buffer[r];
         int i = p - 1;
 
