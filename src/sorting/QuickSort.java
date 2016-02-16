@@ -12,11 +12,11 @@ public class QuickSort<T extends Sortable> {
         this.buffer = buffer;
     }
 
-    public void recursiveQuickSort(int p, int r) {
+    public void sort(int p, int r) {
         if(p < r) {
             int q = partition(p, r);
-            recursiveQuickSort(p, q-1);
-            recursiveQuickSort(q+1, r);
+            sort(p, q-1);
+            sort(q+1, r);
         }
     }
 
@@ -30,17 +30,19 @@ public class QuickSort<T extends Sortable> {
                 i++;
 
                 // swap
-                T tmp = buffer[i];
-                buffer[i] = buffer[j];
-                buffer[j] = tmp;
+                swap(i,j);
             }
         }
 
         // swap i+1 with pivot
-        T tmp = buffer[i+1];
-        buffer[i+1] = buffer[r];
-        buffer[r] = tmp;
+        swap(i+1, r);
 
         return i+1;
+    }
+    
+    private void swap(int i, int j) {
+        T tmp = buffer[i];
+        buffer[i] = buffer[j];
+        buffer[j] = tmp;
     }
 }
